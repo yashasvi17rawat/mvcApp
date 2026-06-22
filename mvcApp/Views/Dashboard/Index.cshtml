@@ -1,0 +1,55 @@
+<!-- Bootstrap CSS -->
+@* <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"> *@
+
+@model List< mvcApp.Dto.ProductDto>
+<div>@ViewBag.SuccessMessages</div>
+<div>@ViewBag.ErrorMessage</div>
+<div class="container mt-5">
+
+    <!-- Top bar -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <a class="btn btn-success" asp-action="ProductForm">+ Add New Product</a>
+        <h3 class="mb-0">Product Dashboard</h3>
+    </div>
+
+    <!-- Product Table -->
+    <div class="card shadow">
+        <div class="card-body">
+            <table class="table table-bordered table-hover text-center align-middle">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Colour</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                @if(Model.Count > 0)
+                {
+                    foreach(var product in Model)
+                    {
+                        <tr>
+                        <td>@product.ProductName </td>
+                        <td>@product.Color</td>
+                        <td>@product.Description</td>
+                        <td>$@product.Price</td>
+                        <td>
+                            <a class="btn btn-primary btn-sm" asp-action="UpdateProductForm" asp-route-productid="@product.ID">Edit</a>
+                            <a class="btn btn-danger btn-sm" asp-action="DeleteProduct" asp-route-productid="@product.ID">Delete</a>
+                        </td>
+                        </tr>
+                    }
+                    
+                }
+                else
+                {
+                    <tr>No products found!</tr>
+                }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>

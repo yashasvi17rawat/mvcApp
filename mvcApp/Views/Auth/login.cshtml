@@ -1,0 +1,34 @@
+@model mvcApp.Dto.UserDto
+
+<div>@ViewBag.SuccessMessage</div>
+<div>@ViewBag.ErrorMessage</div>
+<form class="container d-flex justify-content-center align-items-center vh-100" asp-action="LoginUser">
+    <div class="card shadow p-4" style="width: 350px;">
+        <h3 class="text-center mb-4">Login</h3>
+
+        <!-- Username -->
+        <div class="mb-3">
+            <label for="username" class="form-label">Username</label>
+            <input type="text" class="form-control" id="username" name="username" asp-for="Username" placeholder="Enter username" required>
+        </div>
+
+        <!-- Password -->
+        <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" name="password" asp-for="Password" placeholder="Enter password" required>
+        </div>
+
+        <!-- Remember me -->
+        <div class="form-check mb-3">
+            <input type="checkbox" class="form-check-input" id="remember">
+            <label class="form-check-label" for="remember">Remember me</label>
+        </div>
+
+        <!-- Submit button -->
+        <div class="d-grid">
+            <button type="submit" class="btn btn-primary">Login</button>
+        </div>
+    </div>
+</form>
+
+New user? <a asp-action="Register">Register here</a>
