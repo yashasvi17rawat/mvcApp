@@ -19,7 +19,7 @@ public class ProductDtoTests
 
         // Assert
         Assert.Equal(1, product.ID);
-        Assert.Equal("Laptop", product.ProductName);
+        Assert.Equal("WrongName", product.ProductName);
         Assert.Equal(999.99m, product.Price);
         Assert.Equal("Silver", product.Color);
     }
